@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="bockStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+  </head>
+    
+  <body ng-controller="BockStoreController as store" ui-view>
+    <!-- We'll also add some navigation: -->
+
+      <section>
+      <form class="navbar navbar-default">
+            <div class="col-xs-1">
+                <h1>Libros</h1>
+            </div>
+            
+            <div class="col-xs-3">
+            <label >Buscar:</label> <input  type="text" ng-model="search" class="form-control" placeholder="Campo de texto"/>
+            </div>
+          <div class="col-xs-3">
+            <label>Ordenar por:</label> <select  class="form-control" ng-model="ordenar"   >
+                        <option value="titulo" >Titulo</option>
+                        <option value="Editorail">Editorial</option>
+                    </select> 
+          </div>
+          
+           <div><br>
+           <button class="btn btn-primary  pull-right col-xs-2" ui-sref="dashboard">
+                    <span class="glyphicon glyphicon-user"></span> Ir a Mi Cuenta
+                </button>
+          </div>
+          
+          
+      </form>
+    <div  ng-repeat="product in store.products | filter:search | orderBy:ordenar" >
+        <ul>
+            <li  class="pull-left thumbnail">
+                <img  class="pull-left " ng-src="{{product.images}}" />
+                <h1>{{product.titulo}}</h1>
+                <h2>{{product.autor}}</h2>
+                <h3>{{product.editorial}}</h3>
+                <p class="lead">{{product.descripcion}}</p>
+                
+            </li>
+        </ul>
+    </div>
+    
+    </section>
+          
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/angular-ui-router.js"></script>
+    <script src="js/detalles.js"></script>
+  
+  </body>
+</html>

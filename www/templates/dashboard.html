@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="bockStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+  </head>
+    
+  <body ng-controller="BockStoreController as store">
+      <nav class="navbar navbar-default">
+          <h1 class="text-center">DASHBOARD</h1>
+      </nav >
+     
+      <aside class=" pull-left thumbnail" style="width:200px; height:500px;">
+          <ul class="list-group">
+            <li><a ui-sref="pedidos" class="list-group-item">Mis Pedidos</a></li>
+           <li><a class="list-group-item disabled">Mis Favoritos</a></li> 
+            <li><a ui-sref="datos" class="list-group-item">Mis Datos</a></li>
+            <li><a ui-sref="index" class="list-group-item">Salir --></a></li>
+          </ul>
+      </aside>
+      
+       <section ui-view>
+           <h3 class="text-center">Bienvenido {{store.usuario.nombre}}</h1>
+           <br><br>
+           <div class="text-center">
+               
+                <button class="btn btn-default" ui-sref="pedidos">
+                    <span class="glyphicon glyphicon-shopping-cart"></span> Mis Pedidos
+                </button>
+           
+                <button  class="btn btn-default disabled" >
+                    <span class="glyphicon glyphicon-star-empty"></span> Mis Favoritos
+                </button>
+           
+                <button  class="btn btn-default" ui-sref="datos">
+                    <span class="glyphicon glyphicon-book"></span> Mis Datos
+                </button>
+            </div>
+           
+      </section>
+          
+   
+
+  
+  </body>
+</html>
+
+
+
+
+<body>
+
+</body>
